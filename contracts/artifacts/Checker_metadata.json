@@ -1,0 +1,109 @@
+{
+	"compiler": {
+		"version": "0.4.26+commit.4563c3fc"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "newUser",
+						"type": "address"
+					}
+				],
+				"name": "authoriseUser",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "oldUser",
+						"type": "address"
+					}
+				],
+				"name": "deAuthoriseUser",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "adminAddress",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "userAuthorised",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "userDeAuthorised",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Project/contracts/Checker.sol": "Checker"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Project/contracts/Checker.sol": {
+			"keccak256": "0x126a6ae07dd1d71ab148ee89ef6de1216a98202baee177a4224e16f56c28d251",
+			"urls": [
+				"bzzr://88832ee5470d3dcd2f1e7d460b2007e03d8354c85b5fe866b42c3546718f06d6"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="imgs/mainlogo.png">
+    <title>S&U PharmaChain - IBC Project</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="plugins/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">   
+
+    <link href="plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+    
+    <link href="css/sweetAlert.css" id="theme" rel="stylesheet">
+
+    <link href="plugins/bower_components/switchery/dist/switchery.min.css" rel="stylesheet" />
+
+
+    <!-- Popup CSS -->
+    <link href="plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/parsley.css">
+
+    <link href="plugins/bower_components/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="plugins/bower_components/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
+
+    <style type="text/css">
+        .float-right
+        {
+            float: right;
+        }
+
+        .parsley-required , .red{
+            color: red;
+        }
+    </style>
+
+    <!-- <script src="http://www.w3schools.com/lib/w3data.js"></script> -->
+    <!-- jQuery -->
+    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0 sidebar">
+            <div class="navbar-header" style="padding: 1%;"> 
+                <div class="top-left-part"><a class="logo" href="index.html"><span class="hidden-xs">S&U PharmaChain</span></a></div>
+            </div>
+        </nav>
+        <!-- Left navbar-header -->
+
+        <!-- Left navbar-header end -->
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+        
+
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">User Dashboard</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-info" id="divOngoingTransaction" style="display: none">Ongoing Transaction: <span id="linkOngoingTransaction">None</span> </div>
+                    </div>    
+                </div>
+
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="white-box">
+                            <div class="user-bg"> <img width="100%" alt="user" src="imgs/userbg.jpg">
+                                <div class="overlay-box">
+                                    <div class="user-content" style="opacity: 0.9;">
+                                        <a href="javascript:void(0)"><img src="plugins/images/users/d1.jpg" id="userImage" class="thumb-lg img-circle" alt="img"></a>
+                                        <h4 class="text-white" id="userName">--</h4>
+                                        <h5 class="text-white" id="currentUserAddress">--</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-btm-box" style="width: 300%;margin: 0 auto;">
+                                
+                                <div class="col-md-4 col-sm-4 text-center">
+                                    <p class="text-blue"><i class="fa fa-user"></i> Role</p>
+                                    <h1 id="userRole">--</h1>
+                                    <a href="javascript:void(0);" class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light" style="display: none; width: 100%; font-size: 22px;" id="apiManufacturerCreateShipment" onclick="javascript:$('#batchFormModel').modal();">Create Batch</a>
+                            
+                                </div>
+                                <!-- <div class="col-md-4 col-sm-4 text-center">
+                                    
+                                </div> -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--row -->
+                <!-- /.row -->
+                
+
+                               <!-- row -->
+
+                <div id="batchFormModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none; padding-top: 170px;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h2 class="modal-title">Add Batch</h2>
+                        </div>
+                        <div class="modal-body">
+                            <form id="batchForm" onsubmit="return false;">
+                            <fieldset style="border:0;">
+                                <div class="form-group">
+                                    <label class="control-label" for="farmerRegistrationNo">API Name <i class="red">*</i></label>
+                                    <input type="text" class="form-control" id="farmerRegistrationNo" name="farmerRegistrationNo" placeholder="API Name" data-parsley-required="true">
+                                </div> 
+                                <div class="form-group">
+                                    <label class="control-label" for="farmerName">Location <i class="red">*</i></label>
+                                    <input type="text" class="form-control" id="farmerName" name="farmerName" placeholder="Location" data-parsley-required="true">
+                                </div>     
+                            </fieldset>
+                            
+                        </div>
+                        <div class="modal-footer">
+                             <button type="submit" onclick="addCultivationBatch();" class="fcbtn btn btn-primary btn-outline btn-1f">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Batches Overview</h3> 
+                            <div class="table-responsive">
+                                <table class="table product-overview" id="userCultivationTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Shipment ID</th>
+                                            <th>API Manufacturer</th>
+                                            <th>Formulator</th>
+                                            <th>Wholesaler</th>
+                                            <th>Pharmacy</th>
+                                            <th>Patient</th>
+                                            <th>View</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                         <tr>
+                                             <td colspan="7" align="center">No Data Available</td>
+                                         </tr>                                         
+                                    </tbody>
+                                </table>
+
+                            <!-- Modify FROM HERE!!!! -->
+                            <!-- <div id="userFormModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style=" padding-top: 170px;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h2 class="modal-title" id="userModelTitle">Update Profile</h2>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <form id="updateUserForm" onsubmit="return false;">
+                                            <fieldset style="border:0;">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="fullname">Full Name <i class="red">*</i></label>
+                                                    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Name" data-parsley-required="true">
+                                                </div>                              
+                                                <div class="form-group">
+                                                    <label class="control-label" for="contactNumber">Contact No<i class="red">*</i></label>
+                                                    <input type="text" class="form-control" id="contactNumber" name="contactNumber" placeholder="Contact No." data-parsley-required="true" data-parsley-type="digits" data-parsley-length="[10, 15]" maxlength="15">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="role">Role </label>
+                                                    <select class="form-control" id="role" disabled="true" name="role">
+                                                        <option value="">Select Role</option>
+                                                        <option value="API_MANUFACTURER">API Manufacturer</option>
+                                                        <option value="FORMULATOR">Formulator</option>
+                                                        <option value="WHOLESLAER">Wholesaler</option>
+                                                        <option value="PHARMACIST">Pharmacy</option>
+                                                        <option value="PATIENT">Patient</option>
+                                                        
+                                                    </select>    
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="isActive">User Status</label>
+                                                    <input type="checkbox" class="js-switch" data-color="#99d683" data-secondary-color="#f96262" id="isActive" name="isActive" data-size="small"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="userProfileHash">Profile Image <i class="red">*</i></label>
+                                                    <input type="file" class="form-control" onchange="handleFileUpload(event);" />
+                                                    <input type="hidden" class="form-control" id="userProfileHash" name="userProfileHash" placeholder="User Profile Hash" data-parsley-required="true" >
+                                                    <span id="imageHash"></span>
+                                                </div>
+                                            </fieldset>
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <i style="display: none;" class="fa fa-spinner fa-spin"></i>
+                                         <button type="button" class="btn btn-primary" id="userFormBtn">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                            
+
+                            <!-- API Manufacturer Form -->
+                            <form id="apiManufacturerForm" class="mfp-hide white-popup-block">
+                                <h1>API Manufacturer</h1><br>
+                                <fieldset style="border:0;">
+                                                             
+                                    <div class="form-group">
+                                        <label class="control-label" for="genericName">Generic Name of Medicine</label>
+                                        <input type="text" class="form-control" id="genericName" name="genericName" placeholder="Generic Name of Medicine" data-parsley-required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="apiName">API Name</label>
+                                        <input type="text" class="form-control" id="apiName" name="apiName" placeholder="API Name" data-parsley-required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="apiLocation">Location of Manufacturer</label>
+                                        <input type="text" class="form-control" id="apiLocation" name="apiLocation" placeholder="Location of Manufacturer" data-parsley-required="true">
+                                    </div>
+                                     <div class="form-group float-right">
+                                        <button type="reset" class="btn btn-default waves-effect" >Reset</button>
+                                        <button type="button" id="updateApiManufacturer" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+
+                             <!-- Formulator Form -->
+                            <form id="formulatorForm" class="mfp-hide white-popup-block ">
+                                <h1>Formulator</h1><br>
+                                <fieldset style="border:0;">
+                                                            
+                                    <div class="form-group">
+                                        <label class="control-label" for="fm_name">Formulator Name</label>
+                                        <input type="text" class="form-control" id="fm_name" name="fm_name" placeholder="Formulator Name" data-parsley-required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="fm_mfd_date">Manufacture Date</label>
+                                        <input type="text" class="form-control datepicker-master" id="fm_mfd_date" name="fm_mfd_date" placeholder="Date of Manufacture" data-parsley-required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="fm_exp_date">Expiry Date</label>
+                                        <input type="text" class="form-control datepicker-master" id="fm_exp_date" name="fm_exp_date" placeholder="Date of Expiry" data-parsley-required="true">
+                                    </div>
+                                     <div class="form-group">
+                                        <label class="control-label" for="fm_temperature">Temperature</label>
+                                        <input type="number" class="form-control" id="fm_temperature" name="fm_temperature" placeholder="Temperature" data-parsley-required="true">
+                                    </div>
+                                     <div class="form-group">
+                                        <label class="control-label" for="fm_contents">Contents</label>
+                                        <input type="text" class="form-control" id="fm_contents" name="fm_contents" placeholder="Contents" data-parsley-required="true">
+                                    </div> 
+                                     <div class="form-group">
+                                        <label class="control-label" for="fm_quantity">Quantity</label>
+                                        <input type="number" class="form-control" id="fm_quantity" name="fm_quantity" placeholder="Quantity" data-parsley-required="true">
+                                    </div> 
+                                     <div class="form-group">
+                                        <label class="control-label" for="fm_location">Location</label>
+                                        <input type="text" class="form-control" id="fm_location" name="fm_location" placeholder="Location" data-parsley-required="true">
+                                    </div>                                                        
+                                    <div class="form-group float-right">
+                                        <button type="reset" class="btn btn-default waves-effect">Reset</button>
+                                        <button type="button" id="updateFormulator"class="btn btn-primary">Submit</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+
+                            <!-- Wholesaler Form -->
+                            <form id="wholesalerForm" class="mfp-hide white-popup-block">
+                                <h1>Wholesaler</h1><br>
+                                <fieldset style="border:0;">
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="ws_name">Wholesaler Name</label>
+                                        <input type="number" min="1" class="form-control" id="ws_name" name="ws_name" placeholder="Wholesaler Name" data-parsley-required="true">
+                                    </div> 
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="ws_temperature">Temperature</label>
+                                        <input type="text" class="form-control" id="ws_temperature" name="ws_temperature" placeholder="Temperature" data-parsley-required="true">
+                                    </div> 
+
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="ws_contents">Contents</label>
+                                        <input type="text" class="form-control" id="ws_contents" name="ws_contents" placeholder="Contents" data-parsley-required="true">
+                                    </div> 
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="ws_quantity">Quantity</label>
+                                        <input type="text" class="form-control" id="ws_quantity" name="ws_quantity" placeholder="Quantity" data-parsley-required="true">
+                                    </div> 
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="ws_location">Location</label>
+                                        <input type="text" class="form-control" id="ws_location" name="ws_location" placeholder="Location" data-parsley-required="true">
+                                    </div>
+
+                    
+
+                                     <div class="form-group float-right">
+                                        <button type="reset" class="btn btn-default waves-effect">Reset</button>
+                                        <button type="button" id="updateWholesaler" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+
+                            <!-- Pharmacist Form -->
+                            <form id="pharmacistForm" class="mfp-hide white-popup-block">
+                                <h1>Pharmacist</h1><br>
+                                <fieldset style="border:0;">
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="ps_name">Pharmacy Name</label>
+                                        <input type="text" class="form-control" id="ps_name" name="ps_name" placeholder="Pharmacy Name" data-parsley-required="true">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="ps_location">Location</label>
+                                        <input type="text" class="form-control" id="ps_location" name="ps_location" placeholder="Location" data-parsley-required="true">
+                                    </div> 
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="ps_contents">Contents</label>
+                                        <input type="text" class="form-control" id="ps_contents" name="ps_contents" placeholder="Contents" data-parsley-required="true">
+                                    </div> 
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="ps_quantity">Quantity</label>
+                                        <input type="text" class="form-control" id="ps_quantity" name="ps_quantity" placeholder="Quantity" data-parsley-required="true">
+                                    </div> 
+
+                                    
+                                     <div class="form-group float-right">
+                                        <button type="reset" class="btn btn-default waves-effect">Reset</button>
+                                        <button type="button" id="updatePharmacist"class="btn btn-primary">Submit</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+
+                            <!-- Patient Form -->
+                            <form id="patientForm" class="mfp-hide white-popup-block">
+                                <h1>Patient</h1><br>
+                                <fieldset style="border:0;">
+                                    <div class="form-group">
+                                        <label class="control-label" for="pat_quantity">Quantity</label>
+                                        <input type="number" min="1" class="form-control" id="pat_quantity" name="pat_quantity" placeholder="Quantity" data-parsley-required="true">
+                                    </div> 
+                                    <div class="form-group">
+                                        <label class="control-label" for="pat_contents">Contents</label>
+                                        <input type="text" class="form-control" id="pat_contents" name="pat_contents" placeholder="Contents" data-parsley-required="true">
+                                    </div>                              
+                                    <div class="form-group">
+                                        <label class="control-label" for="pat_price">Price</label>
+                                        <input type="number" min="1" class="form-control" id="pat_price" name="pat_price" placeholder="Price" data-parsley-required="true" >
+                                    </div>
+                               
+                                     <div class="form-group float-right">
+                                        <button type="reset" class="btn btn-default waves-effect">Reset</button>
+                                        <button type="button" id="updatePatient"class="btn btn-primary">Submit</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <!-- /.container-fluid -->
+
+        
+        
+        <footer class="footer text-center"> 
+            © Abhishek & Dhruv. 2021. 
+        </footer>
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    
+    <!-- Bootstrap Core JavaScript -->
+    <script src="plugins/bower_components/bootstrap/dist/js/tether.min.js"></script>
+    <script src="plugins/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+
+    <script type="text/javascript" src="plugins/bower_components/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="plugins/bower_components/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+
+    <script src="plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Counter js -->
+    <script src="plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!--Morris JavaScript -->
+<!--     <script src="plugins/bower_components/raphael/raphael-min.js"></script> -->
+<!--     <script src="plugins/bower_components/morrisjs/morris.js"></script> -->
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <script src="js/dashboard1.js"></script>
+    <!-- Sparkline chart JavaScript -->
+    <script src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
+
+     <!-- Magnific popup JavaScript -->
+    <script src="plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+    <script src="plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>
+
+    <script type="text/javascript" src="js/parsley.min.js"></script>
+    <script type="text/javascript" src="js/sweetAlert.js"></script>
+
+    <!--  contract abi  -->
+    <script type="text/javascript" src="js/web3.min.js"></script>
+    <script type="text/javascript" src="js/abi/SupplyChainAbi.js"></script>
+    <script type="text/javascript" src="js/abi/UserAbi.js"></script>
+
+    <!-- ipfs  -->
+
+    <!-- <script src="https://wzrd.in/standalone/buffer"></script> -->
+    <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js" integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="js/app/app.js"></script>
+    <script type="text/javascript" src="js/app/user.js"></script>
+
+    
+    <script type="text/javascript">
+        $('.qr-code-magnify').magnificPopup({
+              type:'image',
+              mainClass: 'mfp-zoom-in'
+        });
+    </script>
+
+    <!--Style Switcher -->
+    <script src="plugins/bower_components/switchery/dist/switchery.min.js"></script>
+
+</body>
+
+</html>

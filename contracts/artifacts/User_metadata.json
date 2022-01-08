@@ -1,0 +1,163 @@
+{
+	"compiler": {
+		"version": "0.4.26+commit.4563c3fc"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_userAddress",
+						"type": "address"
+					},
+					{
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"name": "_designation",
+						"type": "string"
+					},
+					{
+						"name": "_isActive",
+						"type": "bool"
+					},
+					{
+						"name": "_profileImg",
+						"type": "string"
+					}
+				],
+				"name": "updateUser",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_userAddress",
+						"type": "address"
+					}
+				],
+				"name": "getUser",
+				"outputs": [
+					{
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"name": "designation",
+						"type": "string"
+					},
+					{
+						"name": "_profileImg",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "adminAddress",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "designation",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "_isActive",
+						"type": "bool"
+					},
+					{
+						"indexed": false,
+						"name": "_profileImg",
+						"type": "string"
+					}
+				],
+				"name": "UserUpdate",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Project/contracts/User.sol": "User"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Project/contracts/Checker.sol": {
+			"keccak256": "0x126a6ae07dd1d71ab148ee89ef6de1216a98202baee177a4224e16f56c28d251",
+			"urls": [
+				"bzzr://88832ee5470d3dcd2f1e7d460b2007e03d8354c85b5fe866b42c3546718f06d6"
+			]
+		},
+		"Project/contracts/Database.sol": {
+			"keccak256": "0xb8292d4bb2e0f0c2ff75ebad7c122d06dba7c34b3f7df43444225fe1752d8113",
+			"urls": [
+				"bzzr://f3959353eac522a04ffbc4bda1304ef8659fa0375b33a7e7e8edde9e260fa249"
+			]
+		},
+		"Project/contracts/User.sol": {
+			"keccak256": "0xe4189434c91ca7968a335db37978004bf94e0d2d5d70518ac97d9ec223dc3f0d",
+			"urls": [
+				"bzzr://bf1c6feec521ab64be50cae1f683113a8ea09a3dbb40ddad657594e1f539a902"
+			]
+		}
+	},
+	"version": 1
+}

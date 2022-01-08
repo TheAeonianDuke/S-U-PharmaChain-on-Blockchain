@@ -1,0 +1,24 @@
+Admin Account - 
+    Address: 0x29B03EeF8735e41Ed2295644Cb9044B68cc14C36, 
+    PrivKey: 6d574e7abb76b59a8ef9f5a945a088d26463cf5cb054e1fb76c027d2995c00e0
+
+API Manufacturer Account - 
+    Address: 0x225fe101f72fd872ab6D2FDe497A5E3Ea8f68397, 
+    PrivKey: e84de7b06ac51ac2a596d6e983d3474b268928d0a1c54d037262b9561a038afa
+
+Formulator Account - 
+    Address: 0xC8b1aFEF8dE88bA5Bb7A68E0bB21C11B1273D81c, 
+    PrivKey: 8ba51810067e03d7c7c08765c4dc8a7008ff87f78507779bab1c0def0f030108
+
+Wholesaler Account - 
+    Address: 0x756b9D8BCcAC0BA8B9a4dd4AF4BAE0e2622c2464, 
+    PrivKey: 9df413ddc47ff606d4c75a1748ee9f7e2214bb9491933f543fc1b5599e36597e
+
+Pharmacy Account - 
+    Address: 0x09ffc358Cb5dB543385f0e088f077BAEc6ca0CA7, 
+    PrivKey: 4abc0b96dfa3714bb792832f150bc565d86a4a792334b3beba0dca03f8386028
+
+Patient Account - 
+    Address: 0x44614d35Bfd45Bc63192aa83FdD7c203Cc4901e6, 
+    PrivKey: 7487f89501f192a2d5b68a763fbead6e363ff1e52f4d25bd786cf5f71ed8b0a4
+
